@@ -69,7 +69,7 @@ class ContentTypeSelect(forms.Select):
         # replace original choices
         self.choices = filtered_choices
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         """
         Filters the choices and adds the JavaScript code
         to the HTML of the widget. Returns the HTML code
@@ -106,7 +106,7 @@ class ObjectIdSelect(forms.Select):
         # replace original choices
         self.choices = choices
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         """
         Returns the HTML code of the widget with available choices.
         """
@@ -138,7 +138,7 @@ class ImageWidget(widgets.AdminFileWidget):
           %(input_text)s: %(input)s
         </p>'''
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         """
         Renders custom widget with the image preview for uploaded images
         or the default widget if the image has not yet been uploaded.
@@ -169,7 +169,7 @@ class ImageInlineWidget(forms.Widget):
     """
     template_name = 'content_gallery/admin/edit_inline/image_widget.html'
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         """
         Renders the widget using the template file.
         """
